@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siam Al-Mer Chowdhury | Production Support Engineer</title>
+  <meta
+    name="description"
+    content="Personal website for Siam Al-Mer Chowdhury, a Production Support Engineer focused on fixed income, FX, trading systems, FIX protocol, Linux, SQL, Java, Python, AWS, and Kubernetes."
+  />
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: rgba(15, 23, 42, 0.86);
+      --card: rgba(17, 24, 39, 0.82);
+      --card-hover: rgba(30, 41, 59, 0.9);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --muted-2: #94a3b8;
+      --accent: #38bdf8;
+      --accent-2: #22c55e;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --border: rgba(148, 163, 184, 0.22);
+      --shadow: 0 24px 90px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 32rem),
+        radial-gradient(circle at top right, rgba(34, 197, 94, 0.12), transparent 30rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(15, 23, 42, 0.8);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      font-size: 1.2rem;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .theme-toggle {
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 0.55rem 0.8rem;
+      font-weight: 700;
+    }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 3rem;
+      padding: 5rem 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.84rem;
+      margin-bottom: 1.3rem;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 5.2rem);
+      line-height: 1;
+      letter-spacing: -0.07em;
+      margin-bottom: 1.35rem;
+    }
+
+    h1 span,
+    .highlight {
+      color: var(--accent);
+    }
+
+    .hero-copy {
+      color: var(--muted);
+      font-size: 1.12rem;
+      max-width: 720px;
+      margin-bottom: 2rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 999px;
+      padding: 0.85rem 1.15rem;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #082f49;
+    }
+
+    .btn-secondary {
+      border-color: var(--border);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .quick-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .pill {
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.4rem 0.7rem;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .profile-card {
+      background: linear-gradient(145deg, rgba(17, 24, 39, 0.94), rgba(30, 41, 59, 0.82));
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .avatar-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .avatar {
+      width: 88px;
+      height: 88px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      font-size: 1.8rem;
+      font-weight: 950;
+      color: var(--accent);
+    }
+
+    .profile-card h2 {
+      line-height: 1.2;
+    }
+
+    .profile-card p {
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .profile-link-list {
+      display: grid;
+      gap: 0.7rem;
+      margin: 1.2rem 0;
+    }
+
+    .profile-link-list a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.045);
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .profile-link-list a:hover {
+      color: var(--accent);
+      border-color: rgba(56, 189, 248, 0.45);
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1rem;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.25rem;
+      color: var(--accent);
+    }
+
+    .stat span {
+      color: var(--muted-2);
+      font-size: 0.88rem;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      font-weight: 900;
+      margin-bottom: 0.45rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.05;
+      letter-spacing: -0.055em;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 780px;
+      margin-bottom: 2.2rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 1.4rem;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.48);
+      background: var(--card-hover);
+    }
+
+    .card h3 {
+      margin-bottom: 0.55rem;
+      line-height: 1.25;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .card-link {
+      display: inline-flex;
+      color: var(--accent);
+      font-weight: 900;
+      margin-top: 1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      border-radius: 999px;
+      padding: 0.33rem 0.62rem;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 1.3rem;
+      padding: 1.4rem;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--card);
+    }
+
+    .timeline-date {
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    .project-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .filter-btn {
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.055);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 0.55rem 0.8rem;
+      font-weight: 800;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      color: #082f49;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .contact-box {
+      background: linear-gradient(145deg, rgba(56, 189, 248, 0.18), rgba(17, 24, 39, 0.9));
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 30px;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      color: var(--muted-2);
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    body.light {
+      --bg: #f8fafc;
+      --surface: rgba(248, 250, 252, 0.85);
+      --card: rgba(255, 255, 255, 0.82);
+      --card-hover: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --muted-2: #64748b;
+      --accent: #0284c7;
+      --accent-2: #16a34a;
+      --accent-soft: rgba(2, 132, 199, 0.12);
+      --border: rgba(15, 23, 42, 0.12);
+      --shadow: 0 24px 90px rgba(15, 23, 42, 0.12);
+      background:
+        radial-gradient(circle at top left, rgba(2, 132, 199, 0.16), transparent 32rem),
+        radial-gradient(circle at top right, rgba(22, 163, 74, 0.12), transparent 30rem),
+        var(--bg);
+    }
+
+    body.light header {
+      background: rgba(248, 250, 252, 0.8);
+    }
+
+    body.light .btn-primary,
+    body.light .filter-btn.active,
+    body.light .filter-btn:hover {
+      color: #f8fafc;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="#top">Siam<span>.</span></a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div>
+        <div class="eyebrow">Production Support Engineer · Fixed Income & FX · Cloud Learner</div>
+        <h1>Building reliable trading systems and learning in public.</h1>
+        <p class="hero-copy">
+          I’m Siam Al-Mer Chowdhury, a New York based technologist focused on production engineering,
+          FIX connectivity, Linux troubleshooting, SQL investigation, Java/Python development, AWS,
+          Kubernetes, and financial technology systems.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-secondary" href="https://github.com/schowd3" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/siamalmerchowdhury/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn btn-secondary" href="mailto:sc.siamchowdhury@gmail.com">Contact</a>
+        </div>
+
+        <div class="quick-tags" aria-label="Core strengths">
+          <span class="pill">FIX Protocol</span>
+          <span class="pill">Linux</span>
+          <span class="pill">SQL</span>
+          <span class="pill">Java</span>
+          <span class="pill">Python</span>
+          <span class="pill">AWS</span>
+          <span class="pill">Kubernetes</span>
+        </div>
+      </div>
+
+      <aside class="profile-card" aria-label="Profile snapshot">
+        <div class="avatar-row">
+          <div class="avatar">SC</div>
+          <div>
+            <h2>Siam Al-Mer Chowdhury</h2>
+            <p>Production Support Engineer focused on trading platforms, automation, and cloud growth.</p>
+          </div>
+        </div>
+
+        <div class="profile-link-list">
+          <a href="https://github.com/schowd3" target="_blank" rel="noreferrer">
+            <span>github.com/schowd3</span>
+            <span>↗</span>
+          </a>
+          <a href="https://www.linkedin.com/in/siamalmerchowdhury/" target="_blank" rel="noreferrer">
+            <span>LinkedIn Profile</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat">
+            <strong>17</strong>
+            <span>Public GitHub repos</span>
+          </div>
+          <div class="stat">
+            <strong>NY</strong>
+            <span>Based in New York</span>
+          </div>
+          <div class="stat">
+            <strong>FIX</strong>
+            <span>Trading connectivity</span>
+          </div>
+          <div class="stat">
+            <strong>Cloud</strong>
+            <span>AWS + Kubernetes path</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-kicker">About</div>
+        <h2 class="section-title">I connect production support, software engineering, and trading technology.</h2>
+        <p class="section-subtitle">
+          My background sits at the intersection of real-time financial systems, client-facing investigation,
+          backend development, and infrastructure troubleshooting. I enjoy digging through logs, understanding
+          system flows, finding root causes, and turning recurring problems into cleaner processes.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Production Engineering Mindset</h3>
+            <p>I focus on reliability, observability, fast issue triage, and clear communication during production events.</p>
+          </article>
+          <article class="card">
+            <h3>Trading Systems Context</h3>
+            <p>Experience around FIX flows, order entry, market data, UAT/prod environments, and client-facing support.</p>
+          </article>
+          <article class="card">
+            <h3>Learning Roadmap</h3>
+            <p>Currently sharpening AWS, Kubernetes, automation, backend architecture, and public GitHub project discipline.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-kicker">Experience</div>
+        <h2 class="section-title">Professional story</h2>
+        <p class="section-subtitle">
+          A concise version of my career story for recruiters, hiring managers, and future collaborators.
+        </p>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-date">Current</div>
+            <div>
+              <h3>Production Support Engineer · Fixed Income & FX</h3>
+              <p>
+                Support real-time trading platforms, investigate production issues, work with Linux environments,
+                review logs/configuration, analyze SQL data, and collaborate with engineering, operations, and clients.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">Previous</div>
+            <div>
+              <h3>FlexTrade Systems · Associate Software Developer / Application Support</h3>
+              <p>
+                Worked across EMS/OEMS workflows, broker connectivity, FIX onboarding, Java/C++ components,
+                client support, testing, and cross-functional delivery for trading technology users.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">Foundation</div>
+            <div>
+              <h3>Software Engineering + Cloud Learning</h3>
+              <p>
+                Built projects and training experience across Java, Spring Boot, REST APIs, Python, SQL,
+                machine learning experiments, AWS, and software development fundamentals.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-kicker">Skills</div>
+        <h2 class="section-title">Core technical toolkit</h2>
+        <p class="section-subtitle">
+          Skills I use professionally, plus areas I am actively strengthening through projects and documentation.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Trading & Production Support</h3>
+            <p>FIX protocol, order flow investigation, market data, client support, environment validation, incident triage.</p>
+            <div class="tags">
+              <span class="tag">FIX</span>
+              <span class="tag">FX</span>
+              <span class="tag">Fixed Income</span>
+              <span class="tag">Logs</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Backend & Data</h3>
+            <p>Java, Python, SQL, REST APIs, Spring Boot fundamentals, automation scripts, data checks, and debugging.</p>
+            <div class="tags">
+              <span class="tag">Java</span>
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">REST</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Infrastructure & Cloud</h3>
+            <p>Linux, Git, Jenkins exposure, AWS learning, Kubernetes fundamentals, Docker concepts, and deployment workflows.</p>
+            <div class="tags">
+              <span class="tag">Linux</span>
+              <span class="tag">AWS</span>
+              <span class="tag">Kubernetes</span>
+              <span class="tag">Git</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-kicker">Projects</div>
+        <h2 class="section-title">GitHub proof of work</h2>
+        <p class="section-subtitle">
+          Selected repositories from my GitHub profile, plus the project you are looking at right now. The goal is to keep improving these with better READMEs, screenshots, architecture notes, and deployment links.
+        </p>
+
+        <div class="project-toolbar" aria-label="Project filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="python">Python / ML</button>
+          <button class="filter-btn" data-filter="java">Java</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="cloud">Cloud</button>
+        </div>
+
+        <div class="cards" id="projectGrid">
+          <article class="card project-card" data-category="web">
+            <h3>Personal Website</h3>
+            <p>A responsive portfolio website built with HTML, CSS, and JavaScript. This is my learning-in-public home base.</p>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+            <a class="card-link" href="https://github.com/schowd3" target="_blank" rel="noreferrer">GitHub Profile →</a>
+          </article>
+
+          <article class="card project-card" data-category="python">
+            <h3>ML Trading Bot</h3>
+            <p>AI-powered trading bot concept using financial news sentiment and Alpaca integration ideas.</p>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">FinBERT</span>
+              <span class="tag">Trading</span>
+            </div>
+            <a class="card-link" href="https://github.com/schowd3/MlTradingBot" target="_blank" rel="noreferrer">View Repo →</a>
+          </article>
+
+          <article class="card project-card" data-category="python">
+            <h3>Credit Worthiness Prediction</h3>
+            <p>Machine learning project focused on predicting customer credit worthiness using available data points.</p>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Finance</span>
+            </div>
+            <a class="card-link" href="https://github.com/schowd3/Credit-Worthiness-Prediction" target="_blank" rel="noreferrer">View Repo →</a>
+          </article>
+
+          <article class="card project-card" data-category="java">
+            <h3>Employee REST Communication</h3>
+            <p>Java-based REST communication project that supports backend API learning and service interaction fundamentals.</p>
+            <div class="tags">
+              <span class="tag">Java</span>
+              <span class="tag">REST</span>
+              <span class="tag">Backend</span>
+            </div>
+            <a class="card-link" href="https://github.com/schowd3/EmployeeRestCommunication" target="_blank" rel="noreferrer">View Repo →</a>
+          </article>
+
+          <article class="card project-card" data-category="java">
+            <h3>Movie Management App</h3>
+            <p>Java/JDBC-style application for interacting with movie data and practicing database-backed application logic.</p>
+            <div class="tags">
+              <span class="tag">Java</span>
+              <span class="tag">JDBC</span>
+              <span class="tag">Database</span>
+            </div>
+            <a class="card-link" href="https://github.com/schowd3/MovieManagementApp" target="_blank" rel="noreferrer">View Repo →</a>
+          </article>
+
+          <article class="card project-card" data-category="cloud">
+            <h3>Cloud & Microservices Training</h3>
+            <p>Training repositories covering cloud, REST, microservices, Spring Boot, and Java backend development practice.</p>
+            <div class="tags">
+              <span class="tag">Spring Boot</span>
+              <span class="tag">Microservices</span>
+              <span class="tag">Cloud</span>
+            </div>
+            <a class="card-link" href="https://github.com/schowd3?tab=repositories" target="_blank" rel="noreferrer">Explore Repos →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <div class="section-kicker">Contact</div>
+            <h2 class="section-title">Let’s connect.</h2>
+            <p class="section-subtitle">
+              I’m open to conversations around production engineering, trading systems, FIX connectivity,
+              backend development, cloud infrastructure, and technical support roles in fintech.
+            </p>
+          </div>
+          <div class="actions">
+            <a class="btn btn-primary" href="mailto:sc.siamchowdhury@gmail.com">Email Me</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/siamalmerchowdhury/" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Siam Al-Mer Chowdhury. Built with HTML, CSS, JavaScript, GitHub, and continuous learning.</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById("themeToggle");
+    const year = document.getElementById("year");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll(".project-card");
+
+    year.textContent = new Date().getFullYear();
+
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+    });
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+
+        filterButtons.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        projectCards.forEach((card) => {
+          const matchesFilter = filter === "all" || card.dataset.category === filter;
+          card.style.display = matchesFilter ? "block" : "none";
+        });
+      });
+    });
+  </script>
+</body>
+</html>
