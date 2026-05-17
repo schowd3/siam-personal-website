@@ -1,6 +1,6 @@
-# Siam Personal Website
+## Project Overview
 
-A personal portfolio website.
+This is a static personal website built with HTML, CSS, and JavaScript. 
 
 ## Live Website
 
@@ -10,9 +10,6 @@ https://schowd3.github.io/siam-personal-website/
 
 https://github.com/schowd3/siam-personal-website
 
-## Project Overview
-
-This is a static personal website built with HTML, CSS, and JavaScript. 
 
 ## Features
 
