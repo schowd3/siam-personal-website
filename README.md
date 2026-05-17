@@ -1,6 +1,6 @@
 ## Project Overview
 
-This is a static personal website built with HTML, CSS, and JavaScript. 
+This is a personal website built with HTML, CSS, and JavaScript. 
 
 ## Live Website
 
