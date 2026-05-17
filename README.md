@@ -1,6 +1,6 @@
 # Siam Personal Website
 
-A personal portfolio website for Siam Al-Mer Chowdhury, built to practice front-end fundamentals, Git, GitHub, and GitHub Pages deployment.
+A personal portfolio website.
 
 ## Live Website
 
