@@ -321,6 +321,44 @@
       gap: 1.1rem;
     }
 
+    .featured-project {
+      grid-column: span 2;
+      position: relative;
+      overflow: hidden;
+      border-color: rgba(56, 189, 248, 0.45);
+      background:
+        linear-gradient(145deg, rgba(56, 189, 248, 0.12), rgba(17, 24, 39, 0.88));
+    }
+
+    .featured-project::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.14), transparent 18rem);
+      pointer-events: none;
+    }
+
+    .featured-project > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .featured-badge {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 999px;
+      padding: 0.32rem 0.65rem;
+      font-size: 0.75rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.8rem;
+    }
+
     .card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -473,6 +511,10 @@
 
       .cards {
         grid-template-columns: 1fr;
+      }
+
+      .featured-project {
+        grid-column: span 1;
       }
 
       .timeline-item {
@@ -692,20 +734,42 @@
     <section id="projects">
       <div class="container">
         <div class="section-kicker">Projects</div>
-        <h2 class="section-title">GitHub proof of work</h2>
+        <h2 class="section-title">Selected Technical Work</h2>
         <p class="section-subtitle">
-          Selected repositories from my GitHub profile, plus the project you are looking at right now. The goal is to keep improving these with better READMEs, screenshots, architecture notes, and deployment links.
+          Selected projects that show my growth across trading systems, backend APIs, production support tooling,
+          monitoring, cloud-native deployment, and software engineering fundamentals.
         </p>
 
         <div class="project-toolbar" aria-label="Project filters">
           <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="trading">Trading / Fintech</button>
           <button class="filter-btn" data-filter="python">Python / ML</button>
           <button class="filter-btn" data-filter="java">Java</button>
           <button class="filter-btn" data-filter="web">Web</button>
-          <button class="filter-btn" data-filter="cloud">Cloud</button>
+          <button class="filter-btn" data-filter="cloud">Cloud / DevOps</button>
         </div>
 
         <div class="cards" id="projectGrid">
+          <article class="card project-card featured-project" data-category="trading cloud">
+            <span class="featured-badge">Featured Project</span>
+            <h3>TradePulse</h3>
+            <p>
+              A production-style trading support and monitoring application that simulates order flow,
+              persists orders to PostgreSQL, publishes lifecycle events through Redis Streams, and exposes
+              Prometheus metrics for operational visibility.
+            </p>
+            <div class="tags">
+              <span class="tag">FastAPI</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Redis Streams</span>
+              <span class="tag">Prometheus</span>
+              <span class="tag">Grafana</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Kubernetes</span>
+            </div>
+            <a class="card-link" href="https://github.com/schowd3/tradepulse" target="_blank" rel="noreferrer">View Repo →</a>
+          </article>
+
           <article class="card project-card" data-category="web">
             <h3>Personal Website</h3>
             <p>A responsive portfolio website built with HTML, CSS, and JavaScript. This is my learning-in-public home base.</p>
@@ -714,10 +778,10 @@
               <span class="tag">CSS</span>
               <span class="tag">JavaScript</span>
             </div>
-            <a class="card-link" href="https://github.com/schowd3" target="_blank" rel="noreferrer">GitHub Profile →</a>
+            <a class="card-link" href="https://github.com/schowd3/siam-personal-website" target="_blank" rel="noreferrer">View Repo →</a>
           </article>
 
-          <article class="card project-card" data-category="python">
+          <article class="card project-card" data-category="python trading">
             <h3>ML Trading Bot</h3>
             <p>AI-powered trading bot concept using financial news sentiment and Alpaca integration ideas.</p>
             <div class="tags">
@@ -821,7 +885,8 @@
         button.classList.add("active");
 
         projectCards.forEach((card) => {
-          const matchesFilter = filter === "all" || card.dataset.category === filter;
+          const categories = card.dataset.category.split(" ");
+          const matchesFilter = filter === "all" || categories.includes(filter);
           card.style.display = matchesFilter ? "block" : "none";
         });
       });
